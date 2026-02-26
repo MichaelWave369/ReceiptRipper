@@ -1,0 +1,15 @@
+services:
+  receiptrip:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      APP_SECRET: "change-me"
+      DB_PATH: "/app/data/receiptrip.db"
+      RECEIPTS_DIR: "/app/data/receipts"
+    volumes:
+      - receiptrip_data:/app/data
+volumes:
+  receiptrip_data:
