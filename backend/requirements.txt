@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+email-validator
+python-multipart
+argon2-cffi
+python-jose[cryptography]
+pyyaml
+pillow
+opencv-python
+pytesseract
+python-dateutil
+cryptography
+httpx
+pytest
