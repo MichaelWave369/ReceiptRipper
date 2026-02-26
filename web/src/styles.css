@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-noir text-white m-0 font-sans; background-image: radial-gradient(circle at top,#1a1433,#0a0a12 55%); }
+.card { @apply bg-white/5 border border-white/10 rounded-xl p-4 shadow-lg; }
+.input { @apply w-full bg-black/30 border border-white/20 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-neon; }
+.btn { @apply px-4 py-2 rounded-lg bg-neon text-white font-medium; }
+.btn-outline { @apply px-4 py-2 rounded-lg border border-neon text-neon; }
