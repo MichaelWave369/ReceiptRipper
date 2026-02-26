@@ -75,3 +75,15 @@ App/API: http://localhost:8000
 - Better ML categorization models
 - Household/shared accounts
 - Barcode scanning
+
+## Git push/pull troubleshooting
+If `git push` / `git pull` fails, verify remote + branch upstream first:
+
+```bash
+git remote -v
+git remote set-url origin https://github.com/MichaelWave369/ReceiptRipper.git
+git checkout v0.1-mvp
+git push --set-upstream origin v0.1-mvp
+```
+
+If you see `CONNECT tunnel failed` or `403` in restricted environments, run the same commands from a normal networked machine (or with a valid corporate proxy), then retry.
