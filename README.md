@@ -52,6 +52,7 @@ npm run dev
 ```bash
 cd web && npm install && npm run build && cd ..
 docker compose up --build
+# image builds frontend in Dockerfile, no local web build required
 ```
 App/API: http://localhost:8000
 
@@ -63,6 +64,7 @@ App/API: http://localhost:8000
 - Use strong secrets and secure host storage.
 
 ## API highlights
+- `POST /api/auth/login` accepts `{email,password}`
 - `POST /api/receipts/upload` upload + OCR + draft transaction
 - `GET /api/reports/summary` monthly spend by category/envelope
 - `POST /api/fx/rates` set manual exchange rate

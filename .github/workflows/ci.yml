@@ -19,5 +19,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: cd web && npm ci
+      - run: cd web && npm install
       - run: cd web && npm run build

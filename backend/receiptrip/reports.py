@@ -29,8 +29,9 @@ def monthly_trend(db: Session, user_id: int, months: int, reporting_currency: st
     now = datetime.utcnow()
     out = []
     for i in range(months - 1, -1, -1):
-        y = now.year if now.month - i > 0 else now.year - 1
-        m = (now.month - i - 1) % 12 + 1
+        total_month = (now.year * 12 + now.month - 1) - i
+        y = total_month // 12
+        m = total_month % 12 + 1
         key = f"{y:04d}-{m:02d}"
         out.append(monthly_summary(db, user_id, key, reporting_currency))
     return [{"month": x["month"], "total_spent_cents": x["total_spent_cents"]} for x in out]

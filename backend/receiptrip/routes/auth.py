@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from receiptrip.auth import create_access_token, get_current_user, hash_password, verify_password
 from receiptrip.db import get_db
 from receiptrip.models import User
-from receiptrip.schemas import Token, UserCreate, UserOut
+from receiptrip.schemas import LoginIn, Token, UserCreate, UserOut
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -21,7 +21,7 @@ def register(payload: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=Token)
-def login(payload: UserCreate, db: Session = Depends(get_db)):
+def login(payload: LoginIn, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == payload.email).first()
     if not user or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Invalid credentials")

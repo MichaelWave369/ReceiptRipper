@@ -13,6 +13,13 @@ class UserCreate(BaseModel):
     default_currency: str = "USD"
 
 
+
+
+class LoginIn(BaseModel):
+    email: EmailStr
+    password: str
+
+
 class UserOut(BaseModel):
     id: int
     email: EmailStr
